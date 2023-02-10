@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title></title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Σύνδεση με τους default κανόνες css του template -->
+    <link rel="stylesheet" href="w3-style.css">
+    <!-- Εισαγωγή γραμματοσειράς Lato -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <!-- Εισαγωγή εικονιδίων της Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <!-- Εισαγωγή εικονιδίων από τη γραμματοσειρά awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style type="text/css">
+
+    html, body {
+      font-family: "Lato", sans-serif;
+      height: 100%;
+      color: rgba(15, 15, 15, 1.0);
+      line-height: 1.8;
+      background-color: ghostwhite;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "Lato", sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-size: 1.3em;
+    }
+
+    /* Δημιουργία εφέ παράλλαξης */
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Πρώτη εικόνα (Λογότυπο) */
+    .bgimg-1 {
+      background-image: url(photos/zk_bgimg_1.jpg);
+      min-height: 100%;
+    }
+
+    /* Δεύτερη εικόνα (Έργα μου) */
+    .bgimg-2 {
+      background-image: url(photos/zk_bgimg_2.jpg);
+      min-height: 400px;
+    }
+
+    /* Τρίτη εικόνα (Επικοινωνία) */
+    .bgimg-3 {
+      background-image: url(photos/zk_bgimg_3.jpg);
+      min-height: 400px;
+    }
+
+    .w3-display-middle {
+      white-space:nowrap;
+    }
+
+    #about {
+      height: 100%;
+    }
+
+    #portfolio {
+      min-height: 100%;
+    }
+
+    #myphoto {
+      width: 300px;
+    }
+
+    #thumpP, #thumpV {
+      margin-left: 1.3em; 
+      margin-right: 1.3em;
+    }
+
+    #portfolioPHOTO, #portfolioVIDEO {
+      margin-top: 4em; 
+      margin-bottom: 2em;
+    }
+
+    #foot {
+      font-size:0.9em;
+    }
+
+    /*κεντράρισμα εικονιδίων φωτογραφιών και βίντεο*/
+    @media (min-width: 600px) {
+          #thumpP {
+            display: flex; 
+            justify-content: center;
+          }
+    }
+    
+    @media (min-width: 600px) {
+          #thumpV {
+            display: flex; 
+            justify-content: center;
+      }
+    }
+
+    /* Απενεργοποίηση παράλλαξης για τάμπλετ και κινητά */
+    @media only screen and (max-device-width: 1600px) {
+      .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+        min-height: 400px;
+      }
+    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Μενού (μονίμως στην κορυφή) -->
+    <nav class="w3-top">
+      <div class="w3-bar" id="myNavbar" style="background-color: white;">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#home" class="w3-bar-item w3-button"><b>ΑΡΧΙΚΗ</b></a>
+        <a href="#about" class="w3-bar-item w3-button w3-hide-small"><b>ΓΙΑ ΕΜΕΝΑ</b></a>
+        <a href="#portfolioPHOTO" class="w3-bar-item w3-button w3-hide-small"><b>ΕΡΓΑ ΜΟΥ</b></a>
+        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><b>ΕΠΙΚΟΙΝΩΝΙΑ</b></a>
+      </div>
+
+      <!-- Μενού για μικρές οθόνες -->
+      <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+        <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ΓΙΑ ΕΜΕΝΑ</a>
+        <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">ΕΡΓΑ ΜΟΥ</a>
+        <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+      </div>
+    </nav>
+
+    <!-- Πρώτη εικόνα παράλλαξης και κείμενο λογοτύπου -->
+    <header class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+      <div class="w3-display-middle">
+        <!-- Μικραίνει το κείμενο όταν μικραίνει το μήκος της οθόνης -->
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><span class="w3-hide-small">ZOI</span> KOTSAMPASI</span>
+        <!-- Παραμένει το αρχικό κείμενο χωρίς να αλλάζει γραμμή, όταν μικραίνει η οθόνη: 
+          <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity" style="break-inside: avoid;">MY WEBSITE LOGO</span> -->
+      </div>
+    </header>
+
+    <!-- Τμήμα "ΓΙΑ ΕΜΕΝΑ" -->
+    <section class="w3-content w3-container w3-padding-64" id="about">
+      <div>
+        <br>
+        <h3 class="w3-center"><b>Ζωή Κοτσάμπαση</b></h3>
+        <h6 class="w3-center">Αρχιτέκτων Μηχανικός-Φωτογράφος</h6>
+        <br>
+        <p  class="w3-center"><img src="photos/ΖΩΗ-1.jpg" style="width:30%; 
+        class="w3-round w3-image" alt="my photo" id="myphoto" title="..."></p>
+        <div id="statement" style="font-size:1.1em; text-align:center; margin-bottom:1em;">
+          <br>
+          <p>Η Ζωή Κοτσάμπαση είναι Διπλωματούχος Αρχιτέκτονας Μηχανικός Ε.Μ.Π. έχει MSc στον Βιοκλιματικό Σχεδιασμό Πόλεων και Κτιρίων και είναι τελειόφοιτη του Τμήματος Φωτογραφίας και Οπτικοακουστικών Τεχνών του Π.Α.Δ.Α. Τον Ιανουάριο του 1990 ίδρυσε το Architectural Lab – Zoi Kotsampasi & Partners.</p>
+          <p>Στο φωτογραφικό της έργο αφηγείται προσωπικές ιστορίες που αποτελούνται από θραύσματα μνήμης τα οποία συνθέτει με ένα αρχιτεκτονικό και γλυπτικό τρόπο, όπου το τοπίο, αστικό – περιαστικό – φυσικό, αλλά και τα ταξίδια της από τα διάφορα μέρη του κόσμου αποτελούν αφορμές για δημιουργία. Έχει συμμετάσχει σε εκθέσεις φωτογραφίας τόσο στην Αθήνα όσο και στα Χανιά
+          </p>
+        </div>
+        </div>
+        <div class="w3-row">
+        <p><br></p>
+        </div>
+    </section>
+
+    <!-- Δεύτερη εικόνα παράλλαξης και κείμενο "ΕΡΓΑ ΜΟΥ" -->
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">έργα μου</span>
+      </div>
+    </div>
+
+    <!-- Τμήμα "ΕΡΓΑ ΜΟΥ" Φωτογραφία -->
+    <section class="w3-content w3-container" id="portfolio">
+    
+      <div class="w3-content w3-container" id="portfolioPHOTO">
+      <h3 class="w3-center">Φωτογραφία</h3>
+      <p class="w3-center"><em>Κάντε κλικ επάνω στις εικόνες για να δείτε τις φωτογραφίες των πρότζεκτ</em></p>
+      </div>
+
+
+      <!-- Προσαρμοζόμενη θέση εικόνων αναλόγως της οθόνης. Σε κινητά, η μία εικόνα κάτω από την άλλη, σε υπολογιστές ως τέσσερις στήλες εικόνων -->
+      <figure class="w3-row-padding w3-center" id="thumpP">
+        <div class="w3-col m3">
+          <a href="gallery-p1.html"><img src=photos/gallery-p1/zk_bgimg_5.jpg style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains" title="..."></a>
+        </div>
+
+        <div class="w3-col m3">
+          <a href="gallery-p3.html"><img src="photos/gallery-p3/zk_bgimg_1.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans" title="..."></a>
+        </div>
+
+        <div class="w3-col m3">
+          <a href="gallery-p4.html"><img src=photos/gallery-p4/zk_bgimg_1.jpg style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains" title="..."></a>
+        </div>
+
+        <div class="w3-col m3">
+          <a href="gallery-p5.html"><img src="photos/gallery-p5/zk_bgimg_1.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans" title="..."></a>
+        </div>
+      </figure>
+
+      <!-- Προσαρμοζόμενη θέση εικόνων αναλόγως της οθόνης. Σε κινητά, η μία εικόνα κάτω από την άλλη, σε υπολογιστές ως τέσσερις στήλες εικόνων - 2η γραμμή -->
+      <figure class="w3-row-padding w3-center" id="thumpP">
+        <div class="w3-col m3">
+          <a href="gallery-p6.html"><img src=photos/gallery-p6/MG_7895.jpg style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains" title="..."></a>
+        </div>
+
+        <div class="w3-col m3">
+          <a href="gallery-p7.html"><img src="photos/gallery-p7/zk_bgimg_2a.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans" title="..."></a>
+        </div>
+
+        <div class="w3-col m3">
+          <a href="gallery-p8.html"><img src=photos/gallery-p8/zk_bgimg_1.jpg style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains" title="..."></a>
+        </div>
+
+        <div class="w3-col m3">
+          <a href="gallery-p9.html"><img src="photos/gallery-p9/zk_bgimg_1.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans" title="..."></a>
+        </div>
+
+      </figure>
+      
+    <!-- Τμήμα "ΕΡΓΑ ΜΟΥ" Βίντεο -->
+    <div class="w3-content w3-container" id="portfolioVIDEO">
+      <h3 class="w3-center">Βίντεο</h3>
+      <p class="w3-center"><em>Κάντε κλικ επάνω στις εικόνες για να δείτε τα βίντεο</em></p>
+   
+
+      <!-- Προσαρμοζόμενη θέση εικόνων αναλόγως της οθόνης. Σε κινητά, η μία εικόνα κάτω από την άλλη, σε υπολογιστές ως τέσσερις στήλες εικόνων -->
+     <figure class="w3-row-padding w3-center w3-section"  id="thumpV">
+
+      <span class="w3-center"></iframe></span> 
+     <div class="w3-col m3">
+          <a href="gallery-v2.html"><img src="videos/gallery-v2/VIDEO.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter" title="..."></a>
+        </div>
+        <!--<div class="w3-col m3">
+          <img src="https://www.w3schools.com/w3images/p5.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist" title="...">
+        </div> -->
+
+        <!-- <div class="w3-col m3">
+          <a href="gallery-v2.html"><img src="https://www.w3schools.com/w3images/p6.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter" title="..."></a>
+        </div>
+
+        <div class="w3-col m3">
+          <img src="https://www.w3schools.com/w3images/p7.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train" title="...">
+        </div>
+
+        <div class="w3-col m3">
+          <img src="https://www.w3schools.com/w3images/p8.jpg" style="width:100%; border: 1px solid lightgray;" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing" title="...">
+        </div> -->
+       
+     </figure>
+     <br> 
+    <br>
+    
+    </section>
+
+    <!-- Τρίτη εικόνα παράλλαξης και κείμενο "ΕΠΙΚΟΙΝΩΝΙΑ"  -->
+    <div class="bgimg-3 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+         <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">επικοινωνία</span>
+      </div>
+    </div>
+
+    <!-- Τμήμα "ΕΠΙΚΟΙΝΩΝΙΑ" -->
+    <section class="w3-content w3-container w3-padding-64" id="contact">
+      <h3 class="w3-center">Τρόποι επικοινωνίας</h3>
+      <p class="w3-center"><em>για ανατροφοδότηση, ερωτήσεις, συνεργασίες</em></p>
+      <p class="w3-center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.8379498458175!2d23.746292599999997!3d37.9575696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd719c9823cb%3A0x4214dcb82f881eda!2sAthinagorou%2024%2C%20Athina%20116%2032!5e0!3m2!1sen!2sgr!4v1673112579013!5m2!1sen!2sgr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+
+      <div class="w3-row w3-padding-32 w3-section">
+        <div class="w3-center">
+          <div class="w3-large w3-margin-bottom">
+            <p><span class="material-symbols-outlined">mail</span><br>Αθηναγόρου 24, <br>Αθήνα, Τ.Κ. 11632, Ελλάδα</p>
+            <p><span class="material-symbols-outlined">call</span><br>(+30) 2107290044<br>(+30) 6945410910</p>
+            <p><span class="material-symbols-outlined">alternate_email</span><br><a href="mailto:fo16111@uniwa.gr">fo16111@uniwa.gr</a></p>
+            <p><span class="material-symbols-outlined">connect_without_contact</span><br>
+            <span style="font-size: 1.15em"><a href="https://www.facebook.com/KotsampasiPartners/" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a> &nbsp; 
+            <a href="https://www.instagram.com/zoi_kotsampasi/" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a> &nbsp; 
+            <a href="https://www.linkedin.com/school/university-of-west-attica/mycompany/" target="_blank"><i class="fa fa-linkedin-square w3-hover-opacity"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Υποσέλιδο -->
+    <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+      <p id="foot">Zoi Kotsampasi, 2022-23</p>
+    </footer>
+     
+    <script type="text/javascript">
+
+    // Change style of navbar on scroll
+    window.onscroll = function() {myFunction()};
+    function myFunction() {
+        var navbar = document.getElementById("myNavbar");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        } else {
+            navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+        }
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function toggleFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+    </script>
+
+  </body>
+</html>
